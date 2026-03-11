@@ -3,4 +3,6 @@ project(3m-marathon)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(3m-marathon main.cpp)
+add_executable(3m-marathon main.cpp
+        week1/day1.h
+)
