@@ -35,7 +35,7 @@ void week1_day1()
     print_args(1, 2, hello, name, 3);
     skip_args(1, 2, hello, name, 3);
 
-    catch_error();
+    //catch_error();
 }
 
 #endif //INC_3M_MARATHON_DAY1_H
