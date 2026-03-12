@@ -42,6 +42,7 @@ int count_y(const char* p, const char* end, char x)
 
 void week1_day2()
 {
+    const int nElements = 10;
     std::cout << "Run time calc & compile time calc\n";
     std::cout << "day  5, seconds " << kFiveDays << "\n";
     int days = 1;
@@ -49,18 +50,18 @@ void week1_day2()
     days = 3;
     std::cout << "days " << days << ",  seconds " << showTime(days) << "\n";
 
-    std::cout << "Count the number of occurrences (C-style)\n";
+    std::cout << "\nCount the number of occurrences (C-style)\n";
     // equal arrays C-style null-terminated
-    char v_[10] {'a', 'b', 'c', 'a', 'd', 'f', 'a', 'b', 'c', '\0'};
+    char v_[nElements] {'a', 'b', 'c', 'a', 'd', 'f', 'a', 'b', 'c', '\0'};
     char v[] = "abcadfabc";
     std::cout << "a = " << count_x(v, 'a') << "\n";
     std::cout << "c = " << count_x(v, 'c') << "\n";
 
     std::cout << "Count the number of occurrences (C++ style)\n";
     // is NOT null-terminated
-    const char w[10] {'a','b','c','a','d','b','a','b','k','c'};
-    std::cout << "a = " << count_y(v, v + 10, 'a') << "\n";
-    std::cout << "b = " << count_y(v, v + 10, 'b') << "\n";
+    const char w[nElements] {'a','b','c','a','d','b','b','b','k','c'};
+    std::cout << "a = " << count_y(w, w + nElements, 'a') << "\n";
+    std::cout << "b = " << count_y(w, w + nElements, 'b') << "\n";
 }
 
 #endif //INC_3M_MARATHON_DAY2_H
