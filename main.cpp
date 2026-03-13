@@ -1,6 +1,5 @@
 #include <iostream>
-#include "week1/day1.h"
-#include "week1/day2.h"
+#include "week1/week.h"
 
 int main()
 {
@@ -8,5 +7,7 @@ int main()
     week1_day1();
     std::cout << "\nWeek 1: Day2\n";
     week1_day2();
+    std::cout << "\nWeek 1: Day3\n";
+    week1_day3();
     return 0;
 }

@@ -1,5 +1,8 @@
 # Week 1
 
+Three items: my thoughts, main idea of the topic, knowledge gap.
+I wanna be short thus my notes might sound weird. 🤪
+
 ## Day 0 - preparation
 - It took more time than I expected.
 
@@ -11,3 +14,8 @@
 - If a function may have to be evaluated at compile time, declare it _constexpr_.
 - Prefer the {}-initializer syntax for declarations with a named type.
 - Gap: {} is general for all types, I'm used to use it with containers.
+
+## Day 3 - A Tour of C++ (page 19)
+- It is so slowly :(
+- A `struct` is simply a `class` with members _public_ by default.
+- Gap: `new double[s]` is still used, I'm used to `std::vector<double> v(s)`
