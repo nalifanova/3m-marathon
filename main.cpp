@@ -9,5 +9,7 @@ int main()
     week1_day2();
     std::cout << "\nWeek 1: Day3\n";
     week1_day3();
+    std::cout << "\nWeek 1: Day4\n";
+    week1_day4();
     return 0;
 }

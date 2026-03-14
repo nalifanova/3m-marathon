@@ -19,3 +19,8 @@ I wanna be short thus my notes might sound weird. 🤪
 - It is so slowly :(
 - A `struct` is simply a `class` with members _public_ by default.
 - Gap: `new double[s]` is still used, I'm used to `std::vector<double> v(s)`
+
+## Day 4 - A Tour of C++ (page 23)
+- Better to use `class enums` over `plain enums` to minimize surprises;
+- `union` is a struct where all members are allocated at the same address!
+- Gap: `union` struct, if you need it, use `std::variant` (never used it)
