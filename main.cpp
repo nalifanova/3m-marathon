@@ -11,5 +11,7 @@ int main()
     week1_day3();
     std::cout << "\nWeek 1: Day4\n";
     week1_day4();
+    std::cout << "\nWeek 1: Day5\n";
+    week1_day5();
     return 0;
 }

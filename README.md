@@ -13,6 +13,76 @@ Idea is to run through C++17 and refresh/close gaps.
 * constructors / destructors
 * rule of 0 / 3 / 5
 
+#### stack vs heap
+- in stack - compiler/scope controls a lifetime of an object 
+- in heap - developer or RAII object
+```c++
+void f() {
+    int a = 5;        // stack
+    int* b = new int; // heap
+}
+// after leaving the fn a is freed, b is memory leak
+```
+
+#### object lifetime
+- object lives between constructor and destructor
+```c++
+{
+    A obj;
+    // obj lives
+} // no more obj 
+```
+
+#### RAII - Resource Acquisition Is Initialization
+
+example of resources:
+- heap memory
+- file
+- mutex
+- socket
+- database connection
+
+Resource is captured in constructor and released in destructor
+```c++
+{
+    std::lock_guard<std::mutex> lock(m);
+} mutex here is automatically unlocked
+```
+
+Nice example of correct RAII usage
+```c++
+class File {
+public:
+    File(const char* path) {
+        f = fopen(path,"r");
+    }
+
+    ~File() {
+        fclose(f);
+    }
+
+private:
+    FILE* f;
+};
+```
+
+#### constructors / destructors
+
+We create and we destroy
+```c++
+class A {
+    A() = default;
+    ~A() = default; // free object resources
+};
+```
+Another example:
+```c++
+std::vector<A> v(10); // 10 constructor calls
+
+// when remove v, there'll be 10 destructor calls
+// destructors are called in reverse order 10, 8, .. 2, 1
+```
+
 Practice:
 ```shell
 # create classes
