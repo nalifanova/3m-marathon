@@ -15,14 +15,14 @@ int catch_error()
     }
 }
 
-int print_args(int a, int b, const std::string& greetings, std::string& name, int c)
+void print_args(int a, int b, const std::string& greetings, std::string& name, int c)
 {
     std::cout << "We are printing all args: "
               << a << ", " << b << ", " << greetings << ", " << name << ", "
               << c << "\n";
 }
 
-int skip_args(int, int, const std::string&, std::string& name, int)
+void skip_args(int, int, const std::string&, std::string& name, int)
 {
     std::cout << "We are skipping first three args, " << name
               << ", and the last one too\n";

@@ -30,7 +30,7 @@ I wanna be short thus my notes might sound weird. 🤪
 - Sum up basics of constructor, destructor, RAII, lifetime object
 - Gap: destructors are called in reverse order
 
-## Day 5 - A Tour of C++ (no more page ranges)
+## Day 6 - A Tour of C++ (no more page ranges)
 - Easy to dig deep into details. Rule 0-3-5 is quite often used
 - If a class is a resource handle, it needs a constructor, a destructor, and non-default copy operations
 - Gap: By default, declare single-argument constructors `explicit`

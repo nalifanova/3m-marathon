@@ -43,6 +43,8 @@
 # IDE
 .idea/
 cmake-build-debug/
+.vs/
+out/
 
 # OS
 .DS_Store
