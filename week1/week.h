@@ -1,5 +1,5 @@
-#ifndef INC_3M_MARATHON_WEEK_H
-#define INC_3M_MARATHON_WEEK_H
+#ifndef INC_3M_MARATHON_WEEK1_H
+#define INC_3M_MARATHON_WEEK1_H
 
 #include "day1.h"
 #include "day2.h"
@@ -44,4 +44,4 @@ class Timer {
     ~Timer() = default;
 };
 
-#endif //INC_3M_MARATHON_WEEK_H
+#endif //INC_3M_MARATHON_WEEK1_H

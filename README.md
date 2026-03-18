@@ -100,6 +100,23 @@ Note: CppCon 'Back to Basics: RAII' by Arthur O'Dwyer
 * move assignment
 * std::move
 
+ Note: 
+  - _ctor_ stands for _constructor_
+  - _dtor_: stands for _destructor_
+
+
+```c++
+// move_ctor.cpp
+struct T {
+    T(T&& other) noexcept; // move ctor
+};
+
+// move_assign.cpp
+struct T {
+    T& operator=(T&& other) noexcept; // move assignment
+};
+```
+
 Practice:
 ```shell
 # create class

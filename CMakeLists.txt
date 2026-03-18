@@ -11,4 +11,6 @@ add_executable(3m-marathon main.cpp
         week1/day4.h
         week1/day5.h
         week1/day6.h
+        week2/day1.h
+        week2/week.h
 )

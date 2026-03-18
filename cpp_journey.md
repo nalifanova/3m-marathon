@@ -18,20 +18,28 @@ I wanna be short thus my notes might sound weird. 🤪
 ## Day 3 - A Tour of C++ (page 15 - 18)
 - It is so slowly :(
 - A `struct` is simply a `class` with members _public_ by default.
-- Gap: `new double[s]` is still used, I'm used to `std::vector<double> v(s)`
+- Gap: `new double[s]` is still used, I'm used to `std::vector<double> v(s)`.
 
 ## Day 4 - A Tour of C++ (page 19 - 21)
-- Better to use `class enums` over `plain enums` to minimize surprises;
+- Better to use `class enums` over `plain enums` to minimize surprises.
 - `union` is a struct where all members are allocated at the same address!
-- Gap: `union` struct, if you need it, use `std::variant` (never used it)
+- Gap: `union` struct, if you need it, use `std::variant` (never used it).
 
 ## Day 5 - A Tour of C++ (no more page ranges)
 - Re-factoring of study method/plan.
-- Sum up basics of constructor, destructor, RAII, lifetime object
+- Sum up basics of constructor, destructor, RAII, lifetime object.
 - Gap: destructors are called in reverse order
 
 ## Day 6 - A Tour of C++ (no more page ranges)
-- Easy to dig deep into details. Rule 0-3-5 is quite often used
-- If a class is a resource handle, it needs a constructor, a destructor, and non-default copy operations
-- Gap: By default, declare single-argument constructors `explicit`
+- Easy to dig deep into details. Rule 0-3-5 is quite often used.
+- If a class is a resource handle, it needs a constructor, a destructor, and non-default copy operations.
+- Gap: By default, declare single-argument constructors `explicit`.
 
+
+# Week 2
+
+## Day 1
+- Focus on move semantics and resource management.
+- Follow the rule 0.
+- The gap: if you define at least one of (dtor, copy ctor, copy assignment,
+  move ctor, move assignment), you should define all of them.).
