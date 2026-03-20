@@ -67,8 +67,8 @@ public:
         std::swap(data_, other.data_);
     }
 
-    std::size_t size() const { return size_; }
-    int* data() const { return data_; }
+    [[nodiscard]] std::size_t size() const { return size_; }
+    [[nodiscard]] int* data() const { return data_; }
 
 private:
     std::size_t size_ = 0;
@@ -117,13 +117,13 @@ void w2_lvalue_rvalue()
     std::cout << "Val of x is " << x << ", x -= 15 " << std::endl; // This will print 15
 
 
-    int y = x + 5; // '(x + 5)' — is rvalue. Calculation result is temp
+    //int y = x + 5; // '(x + 5)' is rvalue. Calculation result is temp
 
     std::string guestName = getName(); // 'getName()' returns a temporary object
     // is rvalue.
 
 //int* ptr = &(x + 5); // can't take an address of temp value
-                       // E0158: expression must be an lvalue or a function designator
+                       // E0158: expression must be a lvalue or a function designator
 }
 
 void w2_move_semantics()
@@ -131,21 +131,25 @@ void w2_move_semantics()
     {
         w2_A x;
         x.v = { 1, 2, 3 };
-        int x_size = x.v.size();
+        int x_size = static_cast<int>(x.v.size());
 
-        w2_A y = std::move(x); // calls move constructor (if it is available), otherwise copy constructor
+        w2_A y = std::move(x); // calls move constructor (if it is available),
+                               // otherwise copy constructor
         std::cout << "\nMove semantics\n";
         std::cout << "Before x.v size: " << x_size << ", y.v size: 0" << std::endl;
-        std::cout << "After  x.v size: " << x.v.size() << ", y.v size: " << y.v.size() << std::endl;
+        std::cout << "After  x.v size: " << static_cast<int>(x.v.size())
+        << ", y.v size: " << static_cast<int>(y.v.size()) << std::endl;
 
         w2_B a, b;
         a.v = { 4, 5, 6 };
         b.v = { 1, 2 };
-        int a_size = a.v.size();
-        int b_size = b.v.size();
+        int a_size = static_cast<int>(a.v.size());
+        int b_size = static_cast<int>(b.v.size());
         b = std::move(a);
-        std::cout << "\nBefore a.v size: " << a_size << ", b.v size: " << b_size << std::endl;
-        std::cout << "After  a.v size: " << a.v.size() << ", b.v size: " << b.v.size() << std::endl;
+        std::cout << "\nBefore a.v size: " << a_size
+            << ", b.v size: " << b_size << std::endl;
+        std::cout << "After  a.v size: " << a.v.size()
+            << ", b.v size: " << b.v.size() << std::endl;
     }
 
     {
@@ -187,22 +191,21 @@ void w2_d1_examples()
         std::cout << "\nExamples\n";
         std::vector<int> data;
         std::vector<int> data2;
-        data.resize(1'000'000, 55); // all 55, data.resize(1'000'000) - will give us 0 values
+        data.resize(1'000'000, 55); // all 55, data.resize(1'000'000)
+                                          // - will give us 0 values
 
-        std::cout << "data1 size is = " << data.size() << ", 5th elem = " << data[4] << "\n";
+        std::cout << "data1 size is = " << data.size()
+            << ", 5th elem = " << data[4] << "\n";
         std::cout << "data2 size is = " << data2.size() << "\n";
 
         data2 = std::move(data);
         std::cout << "After move assignment - std::move()\n";
 
         std::cout << "data1 size is = " << data.size() << "\n";
-        std::cout << "data2 size is = " << data2.size() << ", 5th elem = " << data2[4] << "\n";
+        std::cout << "data2 size is = " << data2.size()
+            << ", 5th elem = " << data2[4] << "\n";
     }
 }
-
-struct w1_a1 {
-    std::vector<int> data;
-};
 
 void week2_day1()
 {
@@ -213,7 +216,8 @@ void week2_day1()
         std::cout << "\n\nTo understand\n\n";
         std::cout << "BadVector a1(10);\n"
             "BadVector a2 = a1;\t\t // initialization -> call COPY CTOR\n"
-            "BadVector a3 = std::move(a1);\t // initialization -> call MOVE CTOR (if exists)\n";
+            "BadVector a3 = std::move(a1);\t"
+            " // initialization -> call MOVE CTOR (if exists)\n";
         std::cout << "\n\n";
         std::cout << "BadVector a1(10);\n"
             "BadVector a2(5);\t // a2 already exists\n"
